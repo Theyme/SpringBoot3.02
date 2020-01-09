@@ -27,7 +27,8 @@ public class HomeController {
     return "jobform";
 }
 @PostMapping("/process")
-    public String processForm(@Valid Job job, BindingResult result){
+    public String processForm(@Valid Job job, BindingResult result,  Model model){
+    model.addAttribute("job", job);
     if (result.hasErrors()){
         return "jobform";
     }
